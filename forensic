@@ -1,0 +1,30 @@
+Here's a working example you can paste in: [Forensic Debug]
+
+Connect to vehicle section:
+
+Vehicle ID: AV-073
+Manifest URL: (leave empty)
+GitHub repo: commaai/openpilot
+branch: master
+commit: (leave empty — will use branch HEAD)
+GitHub token: (leave empty, public repo)
+Target files:
+selfdrive/controls/controlsd.py
+selfdrive/controls/lib/longcontrol.py
+Click Connect & fetch. You should see "Fetched 2 file(s) at <commit>".
+
+Failure description:
+
+Vehicle failed to decelerate when lead car braked hard at 65mph on highway.
+Clear weather, daytime, dry road. Driver had to manually engage brakes.
+ACC was active. No alerts shown to driver before incident.
+Click Run Stage 1 — should return ranked hypotheses + predicted log signatures within ~10s.
+
+For Stage 2, paste sample logs:
+
+[14:33:18.201] controlsd: state=ENABLED v_ego=29.1 v_cruise=29.1
+[14:33:19.502] radard: lead detected dRel=42.1 vRel=-2.3
+[14:33:20.804] radard: lead dRel=28.5 vRel=-8.7 aLeadK=-4.2
+[14:33:21.105] longcontrol: a_target=-1.5 (clipped from -3.8)
+[14:33:21.442] FAILURE: driver brake override, disengage
+Then Run Stage 2 to correlate logs against Stage 1 hypotheses.
