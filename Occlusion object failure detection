@@ -1,0 +1,8 @@
+def fuse_detections(current_scan, previous_scan):
+    fused_scene = []
+    # If a bus is partially visible (low confidence)
+    if current_scan.object == 'unknown' and current_scan.confidence < 0.5:
+        # Check if the previous frame identified it
+        if previous_scan.object == 'bus' and previous_scan.location == current_scan.location:
+            fused_scene.append({'object': 'bus', 'confidence': 0.8, 'source': 'temporal_fusion'})
+    return fused_scene
