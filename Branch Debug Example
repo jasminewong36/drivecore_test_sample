@@ -6,3 +6,6 @@ def fuse_detections(current_scan, previous_scan):
         if previous_scan.object == 'bus' and previous_scan.location == current_scan.location:
             fused_scene.append({'object': 'bus', 'confidence': 0.8, 'source': 'temporal_fusion'})
     return fused_scene
+
+
+Note: When a vehicle is partially hidden (occluded) by another object, the detector may fail to classify it correctly or miss it entirely. 
