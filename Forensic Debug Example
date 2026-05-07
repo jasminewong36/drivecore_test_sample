@@ -1,6 +1,4 @@
-Here's a working example you can paste in: [Forensic Debug]
-
-Connect to vehicle section:
+#Connect to vehicle section:
 
 Vehicle ID: AV-073
 Manifest URL: (leave empty)
@@ -13,14 +11,14 @@ selfdrive/controls/controlsd.py
 selfdrive/controls/lib/longcontrol.py
 Click Connect & fetch. You should see "Fetched 2 file(s) at <commit>".
 
-Failure description:
+#Failure description:
 
 Vehicle failed to decelerate when lead car braked hard at 65mph on highway.
 Clear weather, daytime, dry road. Driver had to manually engage brakes.
 ACC was active. No alerts shown to driver before incident.
 Click Run Stage 1 — should return ranked hypotheses + predicted log signatures within ~10s.
 
-For Stage 2, paste sample logs:
+#For Stage 2, paste sample logs:
 
 [14:33:18.201] controlsd: state=ENABLED v_ego=29.1 v_cruise=29.1
 [14:33:19.502] radard: lead detected dRel=42.1 vRel=-2.3
