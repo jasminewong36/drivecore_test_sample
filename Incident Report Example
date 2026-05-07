@@ -1,0 +1,19 @@
+Phantom braking on I-280 near Sand Hill Rd
+
+2026-04-12 09:47:13 PDT — Vehicle AV-073, fleet West-2.
+Cruise control engaged at 65 mph in middle lane of I-280 southbound.
+Clear weather, dry pavement, light traffic, no lead vehicle within 80m.
+
+09:47:14.221 — Radar tracker reports new object at dRel=72m, vRel=-65mph,
+              classified as STATIONARY, confidence 0.41.
+09:47:14.318 — Planning module issues a_target = -3.8 m/s^2 (hard brake).
+09:47:14.402 — Driver experiences sudden deceleration from 65 -> 38 mph.
+09:47:14.910 — Radar track dropped, reclassified as overhead sign (false positive).
+09:47:15.144 — Trailing vehicle (human-driven sedan) closes to 4m, swerves to left lane.
+09:47:16.002 — Driver disengages autonomy, resumes manual control.
+
+No collision. Driver reported neck strain. Trailing vehicle did not stop.
+Suspect cause: low-confidence radar return on overhead gantry misclassified
+as stationary in-lane obstacle. Vision cross-check appears to have been skipped
+due to <500ms decision window in emergency-brake path.
+
